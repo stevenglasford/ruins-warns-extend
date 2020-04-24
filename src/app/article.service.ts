@@ -16,15 +16,17 @@ export class ArticleService {
     //TODO: make a function that will keep the first article in the database until the submit button is activated, then and only then move it to readArticle
 
     //get all of the articles currently in the database
-    return this.http.get<Article[]>( 'https://fakenews-9fe61.firebaseio.com/' + 'unreadArticles.json')
+    return this.http.get<Article[]>( 'https://studentdata-5330a.firebaseio.com/fakenews/unread.json?orderBy="$key"&limitToFirst=1')
     .pipe(map(responseData => {
       const articleArray: Article[] = [];
+      const keyArray: string[] = [];
       for(const key in responseData){
+        keyArray.push(key);
         articleArray.push(responseData[key]);
       }
 
       //Get the first entry in the database, then discard all of the other articles
-      return articleArray;
+      return {articleArray, keyArray};
     }))
   }
 
