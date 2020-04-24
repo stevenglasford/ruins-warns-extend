@@ -31,6 +31,7 @@ export class ArticleComponent implements OnInit {
   articleContent: string = 'hello';
   radioTitle: string;
   radioItems: Array<string>;
+  model = {option: ''};
   firstArticle: KeyArticle;
 
     constructor(
