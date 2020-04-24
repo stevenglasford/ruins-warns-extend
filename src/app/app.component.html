@@ -1,0 +1,16 @@
+<!-- If the user has not accepted the terms and conditions of the survey then provide a popup disclosure form asking for consent, make this the default landing page and anything other than 1 or 2-->
+<div *ngIf="this.hasAcceptedTermsAndConditions !== 1 && this.hasAcceptedTermsAndConditions !== 2">
+  <app-disclosure></app-disclosure>
+  <button (click)="onAccept()">I accept the terms and conditions</button>
+  <button (click)="onDeny()">I do not accept the terms and conditions</button>
+</div>
+
+<!-- If the user accepts the disclosure conditions then allow the other parts of the survey to be shown -->
+<div *ngIf="this.hasAcceptedTermsAndConditions === 1">
+  <app-article></app-article>
+</div>
+
+<!-- If the user does not accept the conditions of the survey then stop the survey and send to a thank you page -->
+<div *ngIf="this.hasAcceptedTermsAndConditions === 2">
+  <app-do-not-accept-terms></app-do-not-accept-terms>
+</div>

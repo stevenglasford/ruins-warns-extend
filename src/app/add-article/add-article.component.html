@@ -1,0 +1,26 @@
+<div class="container">
+  <p>Please add a new article to the database</p>
+  <div class="card">
+    <div class="class-body">
+      <div class="form-group">
+        <input class="form-control" type="text" [(ngModel)]="aTitle" placeholder="Aticle Title">
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="text" [(ngModel)]="aUrl" placeholder="Aticle URL">
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="text" [(ngModel)]="aAuthor" placeholder="Aticle Author">
+      </div>      
+      <div class="form-group">
+        <input class="form-control" type="text" [(ngModel)]="aBody" placeholder="Aticle Body">
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="text" [(ngModel)]="aFakeness" placeholder="Article Fakenes">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" (click)="addNewArticle()">Add Contact</button>
+      </div> 
+           
+    </div>
+  </div>
+</div>
