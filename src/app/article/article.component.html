@@ -20,6 +20,13 @@ Body
   {{firstArticle.body}}
 </div>
 
+<h2>{{radioTitle}}</h2>
+
+<label *ngFor="let radiobutton of radioItems">
+  <input type="radio" name="options" (click)="model.option = radiobutton"
+  [checked]="radiobutton === model.option">{{radiobutton}}
+</label>
+
 
 <!--
 <div class="container row custom-wrapper col-md-12">
