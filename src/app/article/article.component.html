@@ -27,7 +27,15 @@ Body
   [checked]="radiobutton === model.option">{{radiobutton}}
 </label>
 
-
+<!-- Confidence of user -->
+<mat-slider
+   class = "tp-margin"
+   [disabled] = "disabled"
+   [invert] = "invert"      
+   [thumbLabel] = "thumbLabel"     
+   [(ngModel)] = "confidence"
+   [vertical] = "vertical">
+</mat-slider>
 
 <!--
 <div class="container row custom-wrapper col-md-12">

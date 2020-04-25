@@ -16,6 +16,10 @@ import { DoNotAcceptTermsComponent } from './do-not-accept-terms/do-not-accept-t
 import { DisclosureComponent } from './disclosure/disclosure.component';
 import {HeaderComponent} from './article/header/header.component';
 
+//for the slider
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatSliderModule, MatCheckboxModule} from '@angular/material';
+
 
 @NgModule({
   declarations: [ 
@@ -26,7 +30,9 @@ import {HeaderComponent} from './article/header/header.component';
     BrowserModule, 
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSliderModule, MatCheckboxModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [ 

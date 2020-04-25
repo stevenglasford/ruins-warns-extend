@@ -33,13 +33,25 @@ export class ArticleComponent implements OnInit {
   radioItems: Array<string>;
   model = {option: ''};
   firstArticle: KeyArticle;
+  disabled = false;
+  invert = false;
+  thumbLabel = false;
+  verticle = false;
+  confidence = -1;
+  // <mat-slider
+  //  class = "tp-margin"
+  //  [disabled] = "disabled"
+  //  [invert] = "invert"      
+  //  [thumbLabel] = "thumbLabel"     
+  //  [(ngModel)] = "value"
+  //  [vertical] = "vertical"
 
-    constructor(
-      private artService: ArticleService, 
-      public fb: FormBuilder) { 
-        this.radioTitle = 'Is this article Real or Fake?';
-        this.radioItems = ['Real', 'Fake'];
-    }
+  constructor(
+     private artService: ArticleService, 
+     public fb: FormBuilder) { 
+       this.radioTitle = 'Is this article Real or Fake?';
+       this.radioItems = ['Real', 'Fake'];
+  }
   
   ngOnInit(): void {
     //get the data on load
