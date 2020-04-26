@@ -38,6 +38,7 @@ export class ArticleComponent implements OnInit {
   thumbLabel = false;
   verticle = false;
   confidence: number;
+  feedback: string;
 
   public form: FormGroup;
 
@@ -55,6 +56,7 @@ export class ArticleComponent implements OnInit {
        this.radioTitle = 'Is this article Real or Fake?';
        this.radioItems = ['Real', 'Fake'];
        this.confidence = 0;
+       this.feedback = '';
   }
   
   ngOnInit(): void {
