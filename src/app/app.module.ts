@@ -17,8 +17,8 @@ import { DisclosureComponent } from './disclosure/disclosure.component';
 import {HeaderComponent} from './article/header/header.component';
 
 //for the slider
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatSliderModule, MatCheckboxModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxStarRatingModule } from 'ngx-star-rating';
 
 
 @NgModule({
@@ -31,8 +31,8 @@ import {MatSliderModule, MatCheckboxModule} from '@angular/material';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatSliderModule, MatCheckboxModule,
     BrowserAnimationsModule,
+    NgxStarRatingModule,
   ],
   providers: [],
   bootstrap: [ 

@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <app-header></app-header>
 
 Title
@@ -27,15 +29,15 @@ Body
   [checked]="radiobutton === model.option">{{radiobutton}}
 </label>
 
-<!-- Confidence of user -->
-<mat-slider
-   class = "tp-margin"
-   [disabled] = "disabled"
-   [invert] = "invert"      
-   [thumbLabel] = "thumbLabel"     
-   [(ngModel)] = "confidence"
-   [vertical] = "vertical">
-</mat-slider>
+
+<!-- Star Rating for confidence -->
+<h2>Please rate how confident you are in your decision</
+<div class="cont">
+  <div class="stars">
+    <ngx-star-rating [(ngModel)]="confidence" [id]="'confidence'"></ngx-star-rating>
+    <div> Rating: {{ confidence }} </div>
+  </div>
+</div>
 
 <!--
 <div class="container row custom-wrapper col-md-12">

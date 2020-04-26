@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import { ArticleService } from '../article.service';
 import {map} from 'rxjs/operators';
 import {Article} from '../article';
-import {FormBuilder, Validators} from "@angular/forms";
+import {FormBuilder, Validators, FormGroup} from "@angular/forms";
 import {KeyArticle} from '../keyArticle';
 
 @Component({
@@ -37,7 +37,10 @@ export class ArticleComponent implements OnInit {
   invert = false;
   thumbLabel = false;
   verticle = false;
-  confidence = -1;
+  confidence: number;
+
+  public form: FormGroup;
+
   // <mat-slider
   //  class = "tp-margin"
   //  [disabled] = "disabled"
@@ -51,6 +54,7 @@ export class ArticleComponent implements OnInit {
      public fb: FormBuilder) { 
        this.radioTitle = 'Is this article Real or Fake?';
        this.radioItems = ['Real', 'Fake'];
+       this.confidence = 0;
   }
   
   ngOnInit(): void {
