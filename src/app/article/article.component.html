@@ -31,45 +31,18 @@ Body
 
 <!-- Only show once the user has decided if the article is real or fake -->
 <div *ngIf="model.option !== ''">
-<!-- Star Rating for confidence -->
-<h2>How confident are you in your decision? (Five being the most confident)</h2>
-<div class="cont">
-  <div class="stars">
-    <ngx-star-rating [(ngModel)]="confidence" [id]="'confidence'"></ngx-star-rating>
-    <div> Rating: {{ confidence }} </div>
+  <!-- Star Rating for confidence -->
+  <h2>How confident are you in your decision? (Five being the most confident)</h2>
+  <div class="cont">
+    <div class="stars">
+      <ngx-star-rating [(ngModel)]="confidence" [id]="'confidence'"></ngx-star-rating>
+      <div> Rating: {{ confidence }} </div>
+    </div>
   </div>
+
+  <!-- Have the user give a little statement about why they think the article is fake -->
+  <h2> 
+    Why do you think this article is {{model.option}}.
+  </h2>
+  <input class="form-control" type="text" [(ngModel)]="feedback" placeholder="Feedback">
 </div>
-
-<!-- Have the user give a little statement about why they think the article is fake -->
-<h2> 
-  Why do you think this article is {{model.option}}.
-</h2>
-<input class="form-control" type="text" [(ngModel)]="feedback" placeholder="Feedback">
-</div>
-<!--
-<div class="container row custom-wrapper col-md-12">
-	<form [formGroup]="fakenessForm" (ngSubmit)="onSubmit()">
-		<h5 class="mb-3">Would you say the above article is real or fake?</h5>
-    
-
-		<div class="d-block my-3 group-gap">
-			<div class="custom-control custom-radio">
-				<input id="real" type="radio" class="custom-control-input" value="real" name="fakeness" formControlName="fakeness">
-          <label class="custom-control-label" for="real">Real</label>
-        </div>
-        
-        <div class="custom-control custom-radio">
-          <input id="Fake" type="radio" class="custom-control-input" value="Fake" name="fakeness" formControlName="fakeness">
-          <label class="custom-control-label" for="fake">Fake</label>
-        </div>
-         <div class="invalid-feedback" *ngIf="isSubmitted && myForm.errors?.required">
-            <p>Please choose whether the article is real or fake before continuing.</p>
-        </div>
-      </div>
-
-
-        Submit button
-     <button type="submit" class="btn btn-danger btn-lg btn-block">Submit</button>
-    </form><!-- Form ends
-</div>
--->
