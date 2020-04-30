@@ -41,11 +41,13 @@ export class ArticleService {
   moveArticle( article: SubmitArticle, articleKey: string): string{
     //add the answered URL to the read database
     this.addAnswer(article).subscribe(data => {
-      console.log(data);
+      console.log("Article added to the new database");
     });
 
     //delete the article from the database on submit
-    this.deleteArticle(articleKey);
+    this.deleteArticle(articleKey).subscribe(data => {
+      console.log("Article removed from old database")
+    });
 
     //return the fakeness answer
     return article.fakeness;

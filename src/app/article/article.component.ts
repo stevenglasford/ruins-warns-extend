@@ -113,7 +113,7 @@ export class ArticleComponent implements OnInit {
       rating: this.confidence,
       feedback: this.feedback,
     }
-    this.artService.moveArticle(aArticle, article.key).;
+    this.artService.moveArticle(aArticle, article.key);
     console.log(aArticle);
     this.model.option = '';
     this.confidence = 0;
