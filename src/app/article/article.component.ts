@@ -122,6 +122,7 @@ export class ArticleComponent implements OnInit {
     this.model.option = '';
     this.confidence = 0;
     this.feedback = '';
+    this.fetchData()
   }
 
   onSubmit() {
