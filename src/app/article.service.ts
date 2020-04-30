@@ -49,17 +49,16 @@ export class ArticleService {
     return article.fakeness;
   }
 
-  addAnswer(sArticle: SubmitArticle): void{
+  addAnswer(sArticle: SubmitArticle){
     const baseUrl = 'https://studentdata-5330a.firebaseio.com/fakenews/read.json';
-    this.http.post(baseUrl, sArticle);
-    return;
+    return this.http.post(baseUrl, sArticle);
+    
   }
 
   //used to delete the article
-  deleteArticle(articleKey: string): void{
+  deleteArticle(articleKey: string): Observable<KeyArticle>{
     const baseUrl = 'https://studentdata-5330a.firebaseio.com/fakenews/unread';
     const url = `${baseUrl}/${articleKey}.json`;
-    this.http.delete(url);
-    return;
+    return this.http.delete<KeyArticle>(url);
   }
 }

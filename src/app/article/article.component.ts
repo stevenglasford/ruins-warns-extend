@@ -114,15 +114,12 @@ export class ArticleComponent implements OnInit {
       feedback: this.feedback,
     }
     this.artService.moveArticle(aArticle, article.key);
-    return;
-  }
-
-  submit(article: KeyArticle): void{
-    this.moveArt(article);
+    console.log(aArticle);
     this.model.option = '';
     this.confidence = 0;
     this.feedback = '';
-    this.fetchData()
+    this.fetchData();
+    return;
   }
 
   onSubmit() {
