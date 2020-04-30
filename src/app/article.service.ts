@@ -66,10 +66,17 @@ export class ArticleService {
     return article.fakeness;
   }
 
+  addAnswer(sArticle: SubmitArticle): void{
+    const baseUrl = 'https://studentdata-5330a.firebaseio.com/fakenews/read.json';
+    this.http.post(baseUrl, sArticle);
+    return;
+  }
+
   //used to delete the article
   deleteArticle(articleKey: string): void{
     const baseUrl = 'https://studentdata-5330a.firebaseio.com/fakenews/unread';
     const url = `${baseUrl}/${articleKey}.json`;
     this.http.delete(url);
+    return;
   }
 }
