@@ -40,7 +40,9 @@ export class ArticleService {
   //TODO: after the user submits the needed data remove from the unread database and save it to the readArticle database with the additional information gained from the user 
   moveArticle( article: SubmitArticle, articleKey: string): string{
     //add the answered URL to the read database
-    this.addAnswer(article);
+    this.addAnswer(article).subscribe(data => {
+      console.log(data);
+    });
 
     //delete the article from the database on submit
     this.deleteArticle(articleKey);
@@ -50,8 +52,7 @@ export class ArticleService {
   }
 
   addAnswer(sArticle: SubmitArticle){
-    const baseUrl = 'https://studentdata-5330a.firebaseio.com/fakenews/read.json';
-    return this.http.post(baseUrl, sArticle);
+    return this.http.post('https://studentdata-5330a.firebaseio.com/fakenews/read.json', sArticle);
     
   }
 
