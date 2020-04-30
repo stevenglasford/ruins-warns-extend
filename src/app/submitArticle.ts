@@ -1,4 +1,4 @@
-export interface Article{
+export interface SubmitArticle{
   title: string;
   author: string;
   url: string;

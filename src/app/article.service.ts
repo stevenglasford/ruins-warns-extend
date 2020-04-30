@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Article} from './article';
+import {SubmitArticle} './submitArticle';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 
@@ -34,18 +35,25 @@ export class ArticleService {
     return this.http.post("https://studentdata-5330a.firebaseio.com/fakenews/unread.json", newArt);
   }
 
-  //TODO: Store the article that is being read by the user, store it in memory and display it to the user
-  storeArticle(){
-
-  }
-
   //TODO: after the user submits the needed data remove from the unread database and save it to the readArticle database with the additional information gained from the user 
-  moveArticle(){
+  moveArticle(
+    article: Article, 
+    aFakeness: string, 
+    aRating: number,
+    aFeedback: string) : string{
+    
+    const aArticle: SubmitArticle = {
+      title: article.title,
+      author: article.author,
+      url: article.url,
+      body: article.body,
+      fakeness: article.fakeness,
+      answererFakeness: aFakeness,
+      rating: aRating,
+      feedback: aFeedback,
+    }
 
-  }
-
-  //TODO: Delete a particular article from the database
-  deleteSpecificArticle(){
-
+    //return the fakeness answer
+    return article.fakeness;
   }
 }
