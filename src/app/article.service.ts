@@ -38,29 +38,13 @@ export class ArticleService {
   }
 
   //TODO: after the user submits the needed data remove from the unread database and save it to the readArticle database with the additional information gained from the user 
-  moveArticle(
-    article: KeyArticle, 
-    aFakeness: string, 
-    aRating: number,
-    aFeedback: string) : string{
-    
-    //save the article into a new format after reading the article
-    const aArticle: SubmitArticle = {
-      title: article.title,
-      author: article.author,
-      url: article.url,
-      body: article.body,
-      fakeness: article.fakeness,
-      answererFakeness: aFakeness,
-      rating: aRating,
-      feedback: aFeedback,
-    }
-
+  moveArticle( article: SubmitArticle, articleKey: string
+) : string{
     //add the answered URL to the read database
-    
+    this.addAnswer(article);
 
     //delete the article from the database on submit
-    this.deleteArticle(article.key);
+    this.deleteArticle(articleKey);
 
     //return the fakeness answer
     return article.fakeness;

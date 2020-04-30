@@ -5,6 +5,7 @@ import {map} from 'rxjs/operators';
 import {Article} from '../article';
 import {FormBuilder, Validators, FormGroup} from "@angular/forms";
 import {KeyArticle} from '../keyArticle';
+import {SubmitArticle} from '../submitArticle';
 
 @Component({
   selector: 'app-article',
@@ -99,6 +100,22 @@ export class ArticleComponent implements OnInit {
 
   get myForm() {
     return this.fakenessForm.get('fakeness');
+  }
+
+  moveArt(
+    article: KeyArticle,
+  ){
+    const aArticle: SubmitArticle = {
+      title: article.title,
+      author: article.author,
+      url: article.url,
+      body: article.body,
+      fakeness: article.fakeness,
+      answererFakeness: this.model.option,
+      rating: this.confidence,
+      feedback: this.feedback,
+    }
+    this.artService.moveArticle(aArticle, article.key);
   }
 
   onSubmit() {
