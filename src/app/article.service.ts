@@ -38,8 +38,7 @@ export class ArticleService {
   }
 
   //TODO: after the user submits the needed data remove from the unread database and save it to the readArticle database with the additional information gained from the user 
-  moveArticle( article: SubmitArticle, articleKey: string
-) : string{
+  moveArticle( article: SubmitArticle, articleKey: string): string{
     //add the answered URL to the read database
     this.addAnswer(article);
 

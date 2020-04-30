@@ -102,9 +102,7 @@ export class ArticleComponent implements OnInit {
     return this.fakenessForm.get('fakeness');
   }
 
-  moveArt(
-    article: KeyArticle,
-  ){
+  moveArt(article: KeyArticle): void{
     const aArticle: SubmitArticle = {
       title: article.title,
       author: article.author,
@@ -116,6 +114,14 @@ export class ArticleComponent implements OnInit {
       feedback: this.feedback,
     }
     this.artService.moveArticle(aArticle, article.key);
+    return;
+  }
+
+  submit(article: KeyArticle): void{
+    this.moveArt(article);
+    this.model.option = '';
+    this.confidence = 0;
+    this.feedback = '';
   }
 
   onSubmit() {
