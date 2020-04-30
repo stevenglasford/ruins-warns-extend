@@ -71,6 +71,7 @@ export class ArticleComponent implements OnInit {
       let i: number = 0;
       this.articles = null;
       this.keys = null;
+      this.firstArticle = null;
       while (i < this.kArticles.length){
         this.kArticles.pop();
       }

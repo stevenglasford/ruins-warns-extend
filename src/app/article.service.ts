@@ -26,6 +26,7 @@ export class ArticleService {
       for(const key in responseData){
         keyArray.push(key);
         articleArray.push(responseData[key]);
+        console.log(responseData);
       }
 
       //Get the first entry in the database, then discard all of the other articles
@@ -48,7 +49,6 @@ export class ArticleService {
     this.deleteArticle(articleKey).subscribe(data => {
       console.log("Article removed from old database")
     });
-
     //return the fakeness answer
     return article.fakeness;
   }
