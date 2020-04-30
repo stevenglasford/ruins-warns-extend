@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import {Article} from './article';
-import {SubmitArticle} './submitArticle';
+import {SubmitArticle} from './submitArticle';
+import {KeyArticle} from './keyArticle';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -37,11 +39,12 @@ export class ArticleService {
 
   //TODO: after the user submits the needed data remove from the unread database and save it to the readArticle database with the additional information gained from the user 
   moveArticle(
-    article: Article, 
+    article: KeyArticle, 
     aFakeness: string, 
     aRating: number,
     aFeedback: string) : string{
     
+    //save the article into a new format after reading the article
     const aArticle: SubmitArticle = {
       title: article.title,
       author: article.author,
@@ -53,7 +56,20 @@ export class ArticleService {
       feedback: aFeedback,
     }
 
+    //add the answered URL to the read database
+    
+
+    //delete the article from the database on submit
+    this.deleteArticle(article.key);
+
     //return the fakeness answer
     return article.fakeness;
+  }
+
+  //used to delete the article
+  deleteArticle(articleKey: string): void{
+    const baseUrl = 'https://studentdata-5330a.firebaseio.com/fakenews/unread';
+    const url = `${baseUrl}/${articleKey}.json`;
+    this.http.delete(url);
   }
 }
